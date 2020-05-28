@@ -1,0 +1,188 @@
+;; Implementation of a Rules Database
+;; File: overhaul.clips
+
+;; Global Variables
+
+(defglobal ?*categoryA* = 0)
+(defglobal ?*categoryB* = 0)
+(defglobal ?*categoryC* = 0)
+(defglobal ?*categoryD* = 0)
+(defglobal ?*categoryE* = 0)
+(defglobal ?*categoryF* = 0)
+(defglobal ?*categoryG* = 0)
+(defglobal ?*categoryH* = 0)
+(defglobal ?*categoryI* = 0)
+(defglobal ?*categoryJ* = 0)
+(defglobal ?*categoryK* = 0)
+(defglobal ?*categoryL* = 0)
+(defglobal ?*categoryM* = 0)
+(defglobal ?*categoryN* = 0)
+(defglobal ?*categoryO* = 0)
+(defglobal ?*categoryP* = 0)
+
+
+;; Template for Equipment
+
+(deftemplate equipment
+	(slot serial)
+	(slot type
+		(default 0)
+		(type INTEGER))
+	(slot speed
+		(default 0)
+		(type INTEGER))
+	(slot start
+		(type INTEGER))
+	(slot risk
+		(default no)
+		(allowed-symbols yes no)))
+
+;; RULES
+
+(defrule categoryCheckA
+	(logical (equipment (type 1)(speed 1)(start 42736)))
+	=>
+	(bind ?*categoryA* (+ ?*categoryA* 1)))
+
+(defrule categoryCheckB
+	(logical (equipment (type 1)(speed 1)(start 42767)))
+	=>
+	(bind ?*categoryB* (+ ?*categoryB* 1)))
+
+(defrule categoryCheckC
+	(logical (equipment (type 1)(speed 1)(start 42795)))
+	=>
+	(bind ?*categoryC* (+ ?*categoryC* 1)))
+
+(defrule categoryCheckD
+	(logical (equipment (type 1)(speed 1)(start 42826)))
+	=>
+	(bind ?*categoryD* (+ ?*categoryD* 1)))
+
+(defrule categoryCheckE
+	(logical (equipment (type 1)(speed 2)(start 42736)))
+	=>
+	(bind ?*categoryE* (+ ?*categoryE* 1)))
+
+(defrule categoryCheckF
+	(logical (equipment (type 1)(speed 2)(start 42767)))
+	=>
+	(bind ?*categoryF* (+ ?*categoryF* 1)))
+
+(defrule categoryCheckG
+	(logical (equipment (type 1)(speed 2)(start 42795)))
+	=>
+	(bind ?*categoryG* (+ ?*categoryG* 1)))
+
+(defrule categoryCheckH
+	(logical (equipment (type 1)(speed 2)(start 42826)))
+	=>
+	(bind ?*categoryH* (+ ?*categoryH* 1)))
+
+(defrule categoryCheckI
+	(logical (equipment (type 2)(speed 1)(start 42736)))
+	=>
+	(bind ?*categoryI* (+ ?*categoryI* 1)))
+
+(defrule categoryCheckJ
+	(logical (equipment (type 2)(speed 1)(start 42767)))
+	=>
+	(bind ?*categoryJ* (+ ?*categoryJ* 1)))
+
+(defrule categoryCheckK
+	(logical (equipment (type 2)(speed 1)(start 42795)))
+	=>
+	(bind ?*categoryK* (+ ?*categoryK* 1)))
+
+(defrule categoryCheckL
+	(logical (equipment (type 2)(speed 1)(start 42826)))
+	=>
+	(bind ?*categoryL* (+ ?*categoryL* 1)))
+
+(defrule categoryCheckM
+	(logical (equipment (type 2)(speed 2)(start 42736)))
+	=>
+	(bind ?*categoryM* (+ ?*categoryM* 1)))
+
+(defrule categoryCheckN
+	(logical (equipment (type 2)(speed 2)(start 42767)))
+	=>
+	(bind ?*categoryN* (+ ?*categoryN* 1)))
+
+(defrule categoryCheckO
+	(logical (equipment (type 2)(speed 2)(start 42795)))
+	=>
+	(bind ?*categoryO* (+ ?*categoryO* 1)))
+
+(defrule categoryCheckP
+	(logical (equipment (type 2)(speed 2)(start 42826)))
+	=>
+	(bind ?*categoryP* (+ ?*categoryP* 1)))
+
+(defrule risk-check
+	(declare (salience -10))
+=>
+	(if (> ?*categoryA* 3)
+		then
+		(printout t "Type 1 Speed 1 Machines are at risk in January" crlf))
+
+	(if (> ?*categoryB* 3)
+		then
+		(printout t "Type 1 Speed 1 Machines are at risk in February" crlf))
+
+	(if (> ?*categoryC* 3)
+		then
+		(printout t "Type 1 Speed 1 Machines are at risk in March" crlf))
+
+	(if (> ?*categoryD* 3)
+		then
+		(printout t "Type 1 Speed 1 Machines are at risk in April" crlf))
+
+	(if (> ?*categoryE* 3)
+		then
+		(printout t "Type 1 Speed 2 Machines are at risk in January" crlf))
+
+	(if (> ?*categoryF* 3)
+		then
+		(printout t "Type 1 Speed 2 Machines are at risk in February" crlf))
+
+	(if (> ?*categoryG* 3)
+		then
+		(printout t "Type 1 Speed 2 Machines are at risk in March" crlf))
+
+	(if (> ?*categoryH* 3)
+		then
+		(printout t "Type 1 Speed 2 Machines are at risk in April" crlf))
+
+	(if (> ?*categoryI* 3)
+		then
+		(printout t "Type 2 Speed 1 Machines are at risk in January" crlf))
+
+	(if (> ?*categoryJ* 3)
+		then
+		(printout t "Type 2 Speed 1 Machines are at risk in February" crlf))
+
+	(if (> ?*categoryK* 3)
+		then
+		(printout t "Type 2 Speed 1 Machines are at risk in March" crlf))
+
+	(if (> ?*categoryL* 3)
+		then
+		(printout t "Type 2 Speed 1 Machines are at risk in April" crlf))
+
+	(if (> ?*categoryM* 3)
+		then
+		(printout t "Type 2 Speed 2 Machines are at risk in January" crlf))
+
+	(if (> ?*categoryN* 3)
+		then
+		(printout t "Type 2 Speed 2 Machines are at risk in February" crlf))
+
+	(if (> ?*categoryO* 3)
+		then
+		(printout t "Type 2 Speed 2 Machines are at risk in March" crlf))
+
+	(if (> ?*categoryP* 3)
+		then
+		(printout t "Type 2 Speed 2 is at risk in April" crlf))
+)
